@@ -1,10 +1,10 @@
-## Лабораторная 1. Dockerfile
+## Практическая работа 3.1. Dockerfile
 ### Задача
 Написать два Dockerfile – плохой и хороший. Написать две плохие практики по использованию контейнеров
 
 ### Запуск
 ```commandline
-cd lab1\server
+cd lab3_1\server
 ```
 ```commandline
 docker build -t test_name .
