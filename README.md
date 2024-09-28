@@ -16,4 +16,4 @@
 
 [Практическая работа 4.1. Kubernetes](Lesson%204%20Orchestration%20of%20applications/lab4_1)
 
-[Практическая работа 4.2. More Kubernetes](https://github.com/BosenkoTM/DevOps-Technologies/tree/main/Lesson%204%20Orchestration%20of%20applications/lab4_2)
+[Практическая работа 4.2. Сервис в Kubernetes](https://github.com/BosenkoTM/DevOps-Technologies/tree/main/Lesson%204%20Orchestration%20of%20applications/lab4_2)
