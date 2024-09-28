@@ -12,7 +12,7 @@
 
 [Практическая работа 3.1. Dockerfile](Lesson%203%20Containerizing%20Applications/lab3_1)
 
-[Практическая работа 3.2. Docker Compose](lab3_2/README.md)
+[Практическая работа 3.2. Docker Compose](Lesson%203%20Containerizing%20Applications/lab3_2)
 
 [Практическая работа 4.1. Kubernetes](lab4_1/README.md)
 
