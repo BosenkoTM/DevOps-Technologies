@@ -10,7 +10,7 @@
 
 [Практическая работа 2.2. Развертывание и настройка CI/CD системы на основе Jenkins](http://95.131.149.21/moodle/mod/assign/view.php?id=869)
 
-[Практическая работа 3.1. Dockerfile](lab3_1/README.md)
+[Практическая работа 3.1. Dockerfile](Lesson%203%20Containerizing%20Applications/lab3_1)
 
 [Практическая работа 3.2. Docker Compose](lab3_2/README.md)
 
