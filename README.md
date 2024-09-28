@@ -14,6 +14,6 @@
 
 [Практическая работа 3.2. Docker Compose](Lesson%203%20Containerizing%20Applications/lab3_2)
 
-[Практическая работа 4.1. Kubernetes](lab4_1/README.md)
+[Практическая работа 4.1. Kubernetes](Lesson%204%20Orchestration%20of%20applications/lab4_1)
 
 [Практическая работа 4.2. More Kubernetes](lab4_2/README.md)
