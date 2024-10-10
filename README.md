@@ -54,9 +54,17 @@
    sudo systemctl status docker
 ```
 # Установка Docker Compose Ubuntu 22.04
-   
 
-
+Существует несколько способов установки Docker Compose V2 в систему Ubuntu 22.04:
+- установка вместе с `Docker Desktop`;
+- установка из репозитория как плагина `docker-compose-plugin`;
+- установка автономной версии `Docker Compose V2`.
+  
+## Установка автономной версии Docker Compose V2
+```bash
+curl -SL https://github.com/docker/compose/releases/download/VERSION_GITHUB/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
+```
+где `VERSION_GITHUB` актуализируем в ветке [https://github.com/docker/compose/releases/](https://github.com/docker/compose/releases/)
 
 
 
