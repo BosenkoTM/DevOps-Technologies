@@ -17,3 +17,65 @@
 [Практическая работа 4.1. Kubernetes](Lesson%204%20Orchestration%20of%20applications/lab4_1)
 
 [Практическая работа 4.2. Сервис в Kubernetes](https://github.com/BosenkoTM/DevOps-Technologies/tree/main/Lesson%204%20Orchestration%20of%20applications/lab4_2)
+
+# Установка Docker Ubuntu 22.04
+
+1. Установка вспомогательных пакетов 
+
+Для корректной работы Docker требуется наличие нескольких пакетов. Они помогут в безопасности, управлении репозиториями и взаимодействии с интернетом:
+
+`curl` – это инструмент командной строки для передачи данных и работы с `URL`-адресами;
+
+`software-properties-common` – этот пакет предоставляет скрипты для управления программным обеспечением и добавления репозиториев;
+
+`ca-certificates` – необходим для безопасной передачи данных и подтверждения подлинности сертификатов;
+
+`apt-transport-https` – позволяет работать с репозиториями, которые передают данные по протоколу `HTTPS`.
+
+  ```bash
+     sudo apt install curl software-properties-common ca-certificates apt-transport-https -y
+  ```
+
+2. Для обеспечения безопасности установки Docker необходимо добавить ключ `GPG` с официального репозитория. Этот ключ гарантирует подлинность загружаемых пакетов. 
+
+  ```bash
+     wget -O- https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor | sudo tee /etc/apt/keyrings/docker.gpg > /dev/null
+  ```
+3. Добавить репозиторий Docker для доступа к его последним версиям.
+  ```bash
+     echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu jammy stable"| sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  ```
+
+4. После добавления нового репозитория важно снова обновить индексы пакетов, чтобы APT узнал о новом источнике. Проверка репозитория Docker. Установка Docker.Проверка статуса Docker.
+```bash
+   sudo apt update
+   apt-cache policy docker-ce
+   sudo apt install docker-ce -y
+   sudo systemctl status docker
+```
+# Установка Docker Compose Ubuntu 22.04
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
