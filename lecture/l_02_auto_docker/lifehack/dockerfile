@@ -1,0 +1,41 @@
+# Этап 1: Сборка Python приложения
+FROM python:3.9-slim as python-builder
+WORKDIR /app-python
+# Устанавливаем зависимости для сборки
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+# Копируем исходный код Python приложения
+COPY python_app.py .
+# Создаем виртуальное окружение и устанавливаем зависимости
+RUN python -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+RUN pip install PyInstaller
+RUN pyinstaller --onefile python_app.py
+
+# Этап 2: Сборка Go приложения
+FROM golang:1.18 as go-builder
+WORKDIR /app-go
+# Копируем исходный код Go приложения
+COPY go_app.go .
+# Собираем статически скомпилированный бинарный файл
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o go_app .
+
+# Этап 3: Финальный образ
+FROM alpine:3.14
+WORKDIR /app
+# Копируем собранные приложения из предыдущих этапов
+COPY --from=python-builder /app-python/dist/python_app /app/python_app
+COPY --from=go-builder /app-go/go_app /app/go_app
+# Устанавливаем необходимые runtime зависимости
+RUN apk add --no-cache libstdc++ libgcc
+# Делаем файлы исполняемыми
+RUN chmod +x /app/python_app /app/go_app
+
+# Создаем скрипт для запуска обоих приложений
+RUN echo '#!/bin/sh' > /app/run.sh && \
+    echo '/app/python_app &' >> /app/run.sh && \
+    echo '/app/go_app' >> /app/run.sh && \
+    chmod +x /app/run.sh
+
+CMD ["/app/run.sh"]
+

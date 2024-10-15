@@ -1,0 +1,23 @@
+
+# docker-compose.yml без volumes
+
+services:
+  db:
+    build: .
+    ports:
+      - "3306:3306"
+
+# Команды для тестирования:
+# docker compose up -d
+# docker exec -it container_id mysql -u testuser -p
+# CREATE DATABASE my_test;
+# USE my_test;
+# CREATE TABLE users (id INT, name VARCHAR(50));
+# INSERT INTO users VALUES (1, 'John');
+# DESCRIBE users;
+# SELECT * FROM users;
+# SHOW DATABASES;
+# exit
+# docker compose down
+# docker compose up -d
+# Данные будут потеряны после перезапуска

@@ -1,0 +1,22 @@
+# Используем официальный образ Nginx
+FROM nginx:latest
+
+# Устанавливаем переменную окружения для указания пути к исходному файлу
+ENV HTML_SOURCE_PATH ./index.html
+
+# Копируем файл index.html из указанного пути в директорию Nginx
+COPY ${HTML_SOURCE_PATH} /usr/share/nginx/html/index.html
+
+# Пример использования RUN для установки обновлений (если нужно)
+RUN apt-get update && apt-get install -y curl
+
+# Экспонируем порт 80 для доступа к Nginx
+EXPOSE 80
+
+# Запускаем Nginx в режиме демона
+CMD ["nginx", "-g", "daemon off;"]
+
+
+
+
+

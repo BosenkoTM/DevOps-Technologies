@@ -1,0 +1,29 @@
+
+# Пример 2: MySQL с сохранением данных
+# docker-compose.yml с volumes
+services:
+  db:
+    build: .
+    ports:
+      - "3306:3306"
+    volumes:
+      # Именованный volume для данных MySQL
+      - mysql_/var/lib/mysql
+      # Bind mount для пользовательских конфигураций
+      - ./mysql-config:/etc/mysql/conf.d
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: testdb
+      MYSQL_USER: testuser
+      MYSQL_PASSWORD: testpassword
+
+volumes:
+  mysql_
+    driver: local
+
+# Дополнительно можно создать файл конфигурации MySQL
+# ./mysql-config/my.cnf
+[mysqld]
+character-set-server = utf8mb4
+collation-server = utf8mb4_unicode_ci
+max_connections = 100
