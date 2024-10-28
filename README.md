@@ -78,7 +78,7 @@ mkdir -p ~/.docker/cli-plugins/
 curl -SL https://github.com/docker/compose/releases/download/АКТУАЛЬНАЯ_ВЕРСИЯ/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
 ```
 3. Убедиться, что файл docker-compose имеет правильные разрешения для выполнения команды:
-   ```bash
+```bash
 chmod +x ~/.docker/cli-plugins/docker-compose
 ```
 4. Проверить установленную версию Docker Compose:
