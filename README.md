@@ -33,25 +33,31 @@
 `apt-transport-https` – позволяет работать с репозиториями, которые передают данные по протоколу `HTTPS`.
 
   ```bash
-     sudo apt install curl software-properties-common ca-certificates apt-transport-https -y
+  sudo apt install curl software-properties-common ca-certificates apt-transport-https -y
   ```
 
 2. Для обеспечения безопасности установки Docker необходимо добавить ключ `GPG` с официального репозитория. Этот ключ гарантирует подлинность загружаемых пакетов. 
 
   ```bash
-     wget -O- https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor | sudo tee /etc/apt/keyrings/docker.gpg > /dev/null
+  wget -O- https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor | sudo tee /etc/apt/keyrings/docker.gpg > /dev/null
   ```
 3. Добавить репозиторий Docker для доступа к его последним версиям.
   ```bash
-     echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu jammy stable"| sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu jammy stable"| sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
   ```
 
 4. После добавления нового репозитория важно снова обновить индексы пакетов, чтобы APT узнал о новом источнике. Проверка репозитория Docker. Установка Docker.Проверка статуса Docker.
 ```bash
-   sudo apt update
-   apt-cache policy docker-ce
-   sudo apt install docker-ce -y
-   sudo systemctl status docker
+sudo apt update
+```
+```bash
+apt-cache policy docker-ce
+```
+```bash
+sudo apt install docker-ce -y
+```
+```bash
+sudo systemctl status docker
 ```
 # Установка Docker Compose Ubuntu 22.04
 
@@ -61,8 +67,23 @@
 - установка автономной версии `Docker Compose V2`.
   
 ## Установка автономной версии Docker Compose V2
+
+1. Создать каталог для Docker Compose:
 ```bash
-curl -SL https://github.com/docker/compose/releases/download/VERSION_GITHUB/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
+mkdir -p ~/.docker/cli-plugins/
+```
+2. Загрузить последнюю стабильную версию Docker Compose с [официальной страницы релизов Docker](https://github.com/docker/compose/releases)
+
+```bash
+curl -SL https://github.com/docker/compose/releases/download/АКТУАЛЬНАЯ_ВЕРСИЯ/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
+```
+3. Убедиться, что файл docker-compose имеет правильные разрешения для выполнения команды:
+   ```bash
+chmod +x ~/.docker/cli-plugins/docker-compose
+```
+4. Проверить установленную версию Docker Compose:
+```bash
+sudo docker compose version
 ```
 где `VERSION_GITHUB` актуализируем в ветке [https://github.com/docker/compose/releases/](https://github.com/docker/compose/releases/)
 
