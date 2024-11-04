@@ -78,6 +78,7 @@ mkdir -p ~/.docker/cli-plugins/
 curl -SL https://github.com/docker/compose/releases/download/АКТУАЛЬНАЯ_ВЕРСИЯ/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
 ```
 где `АКТУАЛЬНАЯ_ВЕРСИЯ` актуализируем в ветке [https://github.com/docker/compose/releases/](https://github.com/docker/compose/releases/)
+
 3. Убедиться, что файл docker-compose имеет правильные разрешения для выполнения команды:
 ```bash
 chmod +x ~/.docker/cli-plugins/docker-compose
