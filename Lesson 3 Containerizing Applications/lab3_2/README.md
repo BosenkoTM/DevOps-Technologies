@@ -22,7 +22,7 @@ cd lab3_2
 cp .env.example .env
 ```
 ```commandline
-docker-compose up
+sudo docker compose up
 ```
 OpenAPI: 
 ```commandline
