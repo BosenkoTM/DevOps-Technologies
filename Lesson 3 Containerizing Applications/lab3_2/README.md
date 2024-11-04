@@ -65,7 +65,7 @@ services:
 
 Чтобы запустить только определенный сервис из docker-compose.yml, не запуская остальные, можно использовать команду:
 ```commandline
-docker-compose up service_name
+sudo docker compose up service_name
 ```
 Заменить <service_name> на имя сервиса, который хотим запустить.
 
