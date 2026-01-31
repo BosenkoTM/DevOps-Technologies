@@ -1,3 +1,6 @@
+Вот обновленный код для файла `README.md`. Я полностью заменил старый список практических работ на новые лабораторные работы и добавил ссылки на тесты в раздел аттестации.
+
+```markdown
 # DevOps-Technologies
 
 ## 📖 Описание курса
@@ -49,3 +52,64 @@
 ```bash
 sudo apt update
 sudo apt install curl software-properties-common ca-certificates apt-transport-https -y
+```
+
+### 2. Добавление GPG-ключа репозитория Docker
+Для обеспечения безопасности установки необходимо добавить официальный ключ `GPG`.
+```bash
+wget -O- https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor | sudo tee /etc/apt/keyrings/docker.gpg > /dev/null
+```
+
+### 3. Добавление репозитория Docker
+Добавляем репозиторий для доступа к последним версиям пакетов.
+```bash
+echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu jammy stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
+
+### 4. Установка Docker Engine
+Обновляем список пакетов и устанавливаем Docker.
+```bash
+sudo apt update
+sudo apt install docker-ce -y
+```
+
+### 5. Проверка статуса Docker
+Убедитесь, что сервис Docker запущен и работает.
+```bash
+sudo systemctl status docker
+```
+
+</details>
+
+<details>
+<summary><strong>Установка Docker Compose V2 на Ubuntu 22.04</strong></summary>
+
+`Docker Compose V2` устанавливается как плагин для Docker.
+
+### 1. Создание каталога для плагинов Docker CLI
+```bash
+mkdir -p ~/.docker/cli-plugins/
+```
+
+### 2. Загрузка последней стабильной версии
+Загрузите актуальную версию Docker Compose с [официальной страницы релизов](https://github.com/docker/compose/releases). **Не забудьте заменить `АКТУАЛЬНАЯ_ВЕРСИЯ` на реальный номер версии (например, `v2.23.0`).**
+
+```bash
+# Пример: curl -SL https://github.com/docker/compose/releases/download/v2.23.0/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
+curl -SL https://github.com/docker/compose/releases/download/АКТУАЛЬНАЯ_ВЕРСИЯ/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
+```
+
+### 3. Установка прав на выполнение
+Файл плагина должен быть исполняемым.
+```bash
+chmod +x ~/.docker/cli-plugins/docker-compose
+```
+
+### 4. Проверка установки
+Проверьте, что `docker compose` теперь доступен как команда.
+```bash
+docker compose version
+```
+
+</details>
+```
